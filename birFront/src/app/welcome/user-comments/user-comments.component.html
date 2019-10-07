@@ -1,0 +1,63 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
+
+<label>
+    Date Time:
+    <input [owlDateTime]="dt1">
+    <span class="trigger" [owlDateTimeTrigger]="dt1">
+        <i class="fas fa-calendar-alt"></i>
+    </span>
+    <owl-date-time #dt1></owl-date-time>
+</label>
+
+<div _ngcontent-usm-c8="" class="col-md-4">
+  <div _ngcontent-usm-c8="" class="card card-profile">
+    <div _ngcontent-usm-c8="" class="card-avatar">
+      <a _ngcontent-usm-c8="" href="javascript:void(0)">
+        <img _ngcontent-usm-c8="" class="img" src="./assets/img/faces/marc.jpg">
+      </a>
+    </div>
+  <div _ngcontent-usm-c8="" class="card-body">
+    <h6 _ngcontent-usm-c8="" class="card-category text-gray">CEO / Co-Founder</h6>
+    <h4 _ngcontent-usm-c8="" class="card-title">Alec Thompson</h4>
+    <p _ngcontent-usm-c8="" class="card-description"> Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is... </p>
+    <a _ngcontent-usm-c8="" class="btn btn-danger btn-round" href="javascript:void(0)">Follow</a>
+  </div>
+ </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-md-12">
+    <h2>Angular Google maps</h2>
+    <div class="form-group">
+      <label for="place">Search Google Place</label>
+      <input type="text"  class="form-control" id="place" #search [formControl]="searchControl" autocomplete="off" autocapitalize="off" spellcheck="off">
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" style=" height: 500px"></agm-map>
+    <agm-marker *ngFor="let latlng of latlongs" [latitude]="latlong.latitude" [longitude]="latlong.longitude"></agm-marker>
+  </div>
+</div>
+</div>

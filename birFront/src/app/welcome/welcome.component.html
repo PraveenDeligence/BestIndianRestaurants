@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="jumbotron mt-3 text-center pt-5 pb-5">
+      <h1>Welcome to Best Indian Restaurant</h1>
+      <p>View handpicked restaurants near yourself</p>
+
+      <div class="homeIcon">
+        <a href="#"><img src="assets/Breakfast.png" alt="">
+           <p>Breakfast</p>
+        </a>
+        <a href="#"><img src="assets/Cafés.png" alt="">
+           <p>Cafes</p>
+        </a>
+        <a href="#"><img src="assets/Delivery.png" alt="">
+           <p>Delivery</p>
+        </a>
+        <a href="#"><img src="assets/Dinner.png" alt="">
+           <p>Dinner</p>
+        </a>
+        <a href="#"><img src="assets/Drinks-&-Nightlife.png" alt="">
+           <p>Drinks & Nightlife</p>
+       </a>
+        <a href="#"><img src="assets/Lunch.png" alt="">
+           <p>Lunch</p>
+        </a>
+        <a href="#"><img src="assets/Luxury-Dining.png" alt="">
+           <p>Luxury-Dining</p>
+        </a>
+        <a href="#"><img src="assets/Pocket-Friendly-Delivery.png" alt="">
+           <p>Friendly</p>
+        </a>
+      </div>
+    </div>
+
+
+    <div class="row" style="display:flex; flex-wrap: wrap;">
+
+
+        <div class="col-md-3 col-sm-6" *ngFor="let restaurant of restaurants">
+     <div class="card-deck">
+    <div class="card" style="width: 16rem; margin-top: 25px;">
+        <img class="card-img-top" src="{{ restaurant.image }}" alt="Card image cap" style="max-height: 192px !important;">
+        <div class="card-body">
+          <h4 class="card-title text-info" >{{ restaurant.name }}<button class=" float-right btn btn-success btn-circle btn-circle-sm m-1">4/5</button></h4>
+          <p class="card-text">{{ restaurant.description }}</p>
+          <a (click)="moreInfo(restaurant._id)" class="btn theme-color text-light">More Info</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      </div>
+  </div>
+

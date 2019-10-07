@@ -1,0 +1,200 @@
+<div *ngIf="restaurant">
+  <div class="container">
+  <div class="row">
+  <div class="col-md-4">
+     <div class="sidePannel">
+        <h1 class="bg-danger subHeading text-center"> Make a Reservation </h1>
+        <div class= "reservationForm text-center pb-3 mb-3 pl-4 pr-4">
+           <form [formGroup]="bookTableForm">
+              <div class="form-group ">
+                 <select id="inputState" class="form-control mb-3">
+                    <option selected="">Wed, Sep 18 </option>
+                    <option>8:00 am</option>
+                 </select>
+              </div>
+              <div class="row">
+                 <div class="form-group col-md-6">
+                    <select id="inputState" class="form-control">
+                       <option selected>7:00 am </option>
+                       <option>8:00 am</option>
+                       <option>9:00 am</option>
+                       <option>10:00 am</option>
+                       <option>11:00 am</option>
+                    </select>
+                 </div>
+                 <div class="form-group col-md-6">
+                    <select id="inputState" class="form-control">
+                       <option selected>1 person </option>
+                       <option>2 people</option>
+                       <option>3 people</option>
+                       <option>4 people</option>
+                       <option>5 people</option>
+                       <option>6 people</option>
+                       <option>7 people</option>
+                       <option>8 people</option>
+                       <option>9 people</option>
+                       <option>10 people</option>
+                    </select>
+                 </div>
+              </div>
+              <button type='button' class='btn btn-danger btn-lg'><i class='fa fa-cutlery'></i>  Reserve Table</button>
+           </form>
+        </div>
+     </div>
+     <div class="sidePannel">
+        <!-- <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom" style=" height: 500px"></agm-map>
+           <agm-marker *ngFor="let latlng of latlongs" [latitude]="latlong.latitude" [longitude]="latlong.longitude"></agm-marker> -->
+     </div>
+  </div>
+  <div class="col-md-8">
+     <img src="{{restaurant.image}}" height="470px" class="d-block w-100">
+     <div class="container">
+        <div class="container text-center my-4">
+           <div class="float-left h1"> {{restaurant.name}} </div>
+           <!-- <div class="float-right"> <span class="badge badge-success"><a
+              style="font-size: 50px;">{{avg}}</a><a
+              style=" opacity: 0.5; font-size: 30px;">/5</a></span><br>Based
+              on {{count.total}} votes
+              </div><br> -->
+        </div>
+        <br><br>
+        <div class="jumbotron jumbotron-fluid bg-light py-5"
+           style="  font-family: 'Lato', sans-serif;">
+           <h3 class="text-center mb-5">Overview</h3>
+           <div class="ml-5 row">
+              <div class="col-md-4">
+                 <h5>Phone Number</h5>
+                 <a style="font-size: 25px; color:#28a745">+91
+                 {{restaurant.phoneNo}}</a>
+              </div>
+              <div class="col-md-4">
+                 <h5>Opening hours </h5>
+                 Every-day {{restaurant.openHours}} AM – {{restaurant.closeHours}} PM
+              </div>
+              <div class="col-md-4">
+                 <h5>More Info </h5>
+                 {{restaurant.description}}
+              </div>
+              <br>
+           </div>
+           <div class="ml-5 row">
+              <div class="col-md-4">
+                 <h5> Cuisines</h5>
+                 <a style="font-size: 15px; color:red">{{restaurant.cuisine}} </a>
+              </div>
+              <div class="col-md-4">
+                 <h5>Address </h5>
+                 <!-- {{data.address}},{{data.city}},{{data.state}} -->
+              </div>
+              <div class="col-md-4">
+                 <h5> More-details </h5>
+                 {{restaurant.description}}
+              </div>
+           </div>
+        </div>
+        <div class="review">
+           <div class="jumbotron jumbotron-fluid bg-light py-5"
+              style=" color: black; font-family: 'Lato', sans-serif;">
+              <div class="container">
+                 <h3 class="text-center mb-5">Write a Review</h3>
+                 <form (ngSubmit)="addComments()" method="POST"
+                    enctype="multipart/form-data">
+                    <div class="form-group row">
+                       <label for="rating"
+                          class="col-sm-2 col-form-label">Rating</label>
+                       <div class="col-sm-10">
+                          <fieldset class="rating" id="rating">
+                             <label>
+                             <input type="radio" name="rating"
+                                value="1" />
+                             <span class="icon">★</span>
+                             </label>
+                             <label>
+                             <input type="radio" name="rating"
+                                value="2" />
+                             <span class="icon">★</span>
+                             <span class="icon">★</span>
+                             </label>
+                             <label>
+                             <input type="radio" name="rating"
+                                value="3" />
+                             <span class="icon">★</span>
+                             <span class="icon">★</span>
+                             <span class="icon">★</span>
+                             </label>
+                             <label>
+                             <input type="radio" name="rating"
+                                value="4" />
+                             <span class="icon">★</span>
+                             <span class="icon">★</span>
+                             <span class="icon">★</span>
+                             <span class="icon">★</span>
+                             </label>
+                             <label>
+                             <input type="radio" name="rating"
+                                value="5" />
+                             <span class="icon">★</span>
+                             <span class="icon">★</span>
+                             <span class="icon">★</span>
+                             <span class="icon">★</span>
+                             <span class="icon">★</span>
+                             </label>
+                          </fieldset>
+                       </div>
+                    </div>
+                    <div class="form-group row">
+                       <label for="review"
+                          class="col-sm-2 col-form-label">Review</label>
+                       <div class="col-sm-10">
+                          <textarea ngModel name="comment" #comment class="form-control"
+                             id="comment" placeholder="Your Review" rows="5">
+                          </textarea>
+                       </div>
+                    </div>
+                    <div class="form-group row">
+                       <label for="photo"
+                          class="col-sm-2 col-form-label">Photo</label>
+                       <div class="col-sm-10">
+                          <input type="file" class="form-control-file"
+                             id="photo" name="img" required>
+                          <p class="small">Preferable size: 400 x 300 pixels
+                          </p>
+                       </div>
+                    </div>
+                    <div class="form-group mt-5 mb-0"
+                       style="display: flex; justify-content:center">
+                       <div class="">
+                          <button class="btn btn-dark"
+                             style="background-color: #282c35;" (click)="addComments(restaurant._id, comment.value)">Post
+                          Review</button>
+                       </div>
+                    </div>
+                 </form>
+              </div>
+           </div>
+        </div>
+        <div class="container text-center">
+           <h1 class="mt-4 mb-0">Reviews</h1>
+           <hr class="mt-3 mb-5">
+        </div>
+        <div *ngFor="let use of restaurant.comments" class="container mb-4" style="max-height: 750px; overflow:auto;" id="comment">
+           <div class="card-body bg-light text-dark">
+              <h5 class="card-title" style="color:#fbb710">{{use.username}}</h5>
+              <div class="blockquote-footer"> 3 min ago</div>
+              <div class="star-ratings-css">
+                 <div class="star-ratings-css-top"
+                    style="width:20%">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                 </div>
+                 <div class="star-ratings-css-bottom">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                 </div>
+              </div>
+              <p class="card-text">{{use.comment}}</p>
+              <!-- <img src="{{this.img}}" height="120px" class="d-block w-120"> -->
+           </div>
+           <br>
+        </div>
+     </div>
+     <br><br>
+  </div>

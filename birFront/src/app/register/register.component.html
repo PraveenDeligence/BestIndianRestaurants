@@ -1,0 +1,57 @@
+<!-- <div class="row" style="margin-top:40px; padding:20px; background-color:#eff0f2;border-radius:15px;
+-webkit-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+-moz-box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);
+box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.2);"> -->
+  <!-- <div class="col-sm-12" style="text-align:center;">
+    Register
+  </div> -->
+
+  <!-- <div class="col-sm-12">
+    <form [formGroup]= "registerForm">
+        <div class="form-group">
+            <label for="exampleInputname">Username</label>
+            <input formControlName="name" type="text" class="form-control" id="exampleInputname" aria-describedby="userHelp" placeholder="username">
+            <small id="nameHelp" class="form-text text-muted"></small>
+        </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted"></small>
+      </div>
+      <div class="form-group">
+        <label for="passwordInput">Password</label>
+        <input formControlName="password" type="password" class="form-control" id="passwordInput" aria-describedby="passHelp" placeholder="password">
+        <small id="passHelp" class="form-text text-muted"></small>
+      </div>
+      <div class="form-group">
+          <label for="password2Input">Confirm Password</label>
+          <input formControlName="password2" type="password" class="form-control" id="password2wordInput" aria-describedby="password2Help" placeholder="password">
+          <small id="password2Help" class="form-text text-muted"></small>
+        </div>
+      <div class="form-group" style="text-align:center;">
+          <button type="button" class="btn btn-dark" (click)="register()">Register</button>
+          <button type="button" class="btn btn-secondary" (click)="moveToLogin()">Log in</button>
+      </div>
+    </form>
+  </div>
+</div> -->
+
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+      <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+        <mat-form-field>
+          <input matInput  type="text" name="name" ngModel placeholder="Username" #nameInput="ngModel" required >
+          <mat-error *ngIf="nameInput.invalid">Please Enter Username.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput  type="email" name="email" ngModel placeholder="E-mail" #emailInput="ngModel" required email>
+          <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" name="password" ngModel placeholder="Password" #passwordInput="ngModel" required>
+            <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="accent" type="submit">SignUp</button>
+        <!-- <button mat-raised-button color="accent" (click)="moveToRegister()">SignUp</button> -->
+      </form>
+  </mat-card>
